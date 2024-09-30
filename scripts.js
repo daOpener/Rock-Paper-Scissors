@@ -1,10 +1,8 @@
 
 
+let humanScore = 0;
+let computerScore = 0;
 
-
-const userChoice = prompt("Enter Rock, Paper, Scissor: ");
-const humanScore = 0;
-const computerScore = 0;
 function getComputerChoice() {
     const rnd = Math.floor(Math.random() * 3);
     if (rnd === 0) {
@@ -17,7 +15,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-
+    const userChoice = prompt("Enter Rock, Paper, Scissor: ");
     if (userChoice.toLowerCase() === "rock" || userChoice.toLowerCase() === "paper" || userChoice.toLowerCase() === "scissor") {
         return userChoice;
     } else {
@@ -25,7 +23,6 @@ function getHumanChoice() {
     }
 
 }
-console.log(getHumanChoice());
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -37,21 +34,26 @@ function playRound(humanChoice, computerChoice) {
         || computerChoice === 'Scissor' && humanChoice === 'Paper'
     ) {
         console.log("You lose " + computerChoice + " beats " + humanChoice);
+        computerScore++;
     }
 
     else {
         console.log("You win " + humanChoice + " beats " + computerChoice);
+        humanScore++;
     }
+    console.log("Your Score: " + humanScore + " Computer Score: " + computerScore);
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
 
 function playGame() {
-    playRound();
-    console.log(computerScore);
+    humanScore = 0;
+    computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        console.log("Round " + (i + 1));
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+
 }
-//step 1: getting one of the random from rock, paper, scissor using math.random
-//step 2: get the human choice make it sure its valid choice because we combined it to the other choice.
+
+playGame();
