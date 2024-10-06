@@ -6,10 +6,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
 
+        body {
+            background-color: antiquewhite;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        figure,
+        button {
+            width: 100px;
+            box-shadow: 5px 5px 10px rgba(15, 14, 14, 0.4);
+            ;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        figure:hover,
+        button:hover {
+            transform: scale(0.9);
+            cursor: pointer;
+        }
+
+
+        h2 {
+            text-align: center;
+        }
+
+        button {
+            border: 0.05rem solid white;
+            padding: 5px;
+            border-radius: 20px;
+            background-color: turquoise;
+        }
+
+        h2::first-letter {
+            color: rgb(245, 194, 131);
+        }
+
+        span {
+            color: rgb(75, 219, 209);
+        }
+    </style>
 </head>
 
 <body>
+    <h1>Rounds: 5</h1>
+    <main>
+        <h2>Rock <span>P</span>aper <span>S</span>cissor</h2>
+
+        <button onclick="playGame()">Play Game</button>
+        <div id="process"></div>
+        <div>
+            <div class="broScore">
+                Player: 0
+            </div>
+            <figure>
+                <img id="rock" src="/Rock.png" alt="Rock hand" height="100%" width="100%">
+            </figure>
+            <figure>
+                <img id="paper" src="/Paper.png" alt="Paper hand" height="100%" width="100%">
+            </figure>
+            <figure>
+                <img id="scissor" src="/Scissor.png" alt="Scissor hand" height="100%" width="100%">
+            </figure>
+            <div class="broScobot">
+                Computer: 0
+            </div>
+        </div>
+    </main>
+
     <script src="/scripts.js"></script>
 </body>
 
